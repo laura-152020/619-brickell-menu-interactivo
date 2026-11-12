@@ -1,0 +1,51 @@
+619 BRICKELL - LEVANTAR LAS PLANTAS EN REVIT (pyRevit)
+======================================================
+
+QUE HACE
+El boton "Levantar Planta" crea en Revit, a partir de los planos del PDF:
+  - MUROS: concreto (nucleos y estructura), tabiques interiores y fachada,
+    con tipos "619 - Concreto/Tabique/Fachada 4, 6, 8 y 12 in".
+  - LOSA: contorno de la planta (piso del nivel).
+  - BARANDALES: borde de los balcones.
+  - PUERTAS: en los vanos donde el plano dibuja el arco de la puerta
+    (usa la primera familia de puerta cargada en el proyecto).
+Crea los niveles "Nivel 11" a "Nivel 75" si no existen.
+
+REQUISITOS
+  - Revit 2022 o posterior (Windows).
+  - pyRevit instalado (gratis): https://github.com/pyrevitlabs/pyRevit/releases
+  - Un proyecto con plantilla arquitectonica (que tenga tipos de muro, suelo,
+    barandilla y al menos una familia de puerta).
+
+INSTALACION (5 minutos)
+1. Instala pyRevit y abre Revit. Veras la pestana "pyRevit".
+2. Copia la carpeta "619Brickell.extension" a una carpeta fija,
+   por ejemplo C:\pyRevitExtensions\
+3. En Revit: pyRevit > Settings > "Custom Extension Directories" > Add folder
+   > elige C:\pyRevitExtensions  > Save Settings and Reload.
+4. Aparece una pestana nueva "619 Brickell" con el boton "Levantar Planta".
+
+USO
+1. Abre un proyecto nuevo con plantilla arquitectonica.
+2. Pulsa "Levantar Planta" y elige:
+     - Un piso (recomendado para probar: piso 30), o
+     - Una coleccion completa, o toda la torre (11 a 75).
+3. Marca Muros, Losa, Barandales, Puertas.
+4. Indica la altura entre pisos en pies (por defecto 10.5).
+5. Al terminar aparece una tabla con lo creado por piso.
+Todo queda en un solo paso de deshacer (Ctrl+Z lo revierte entero).
+
+TIEMPOS ORIENTATIVOS
+  - Un piso: menos de 1 minuto.
+  - Toda la torre (65 pisos, unos 40.000 muros): puede tardar 20-40 minutos.
+    Para la presentacion basta con 1 piso o una coleccion.
+
+LIMITES (revisar en Revit)
+  - Los muros salen de pares de lineas paralelas del PDF: algunos tabiques
+    pueden faltar o venir partidos; los nucleos de concreto curvos se
+    aproximan con tramos rectos.
+  - Se detectan las puertas cuyo arco esta dibujado en el plano (20-35 por
+    planta tipo); el resto se coloca a mano.
+  - La altura de piso real debe confirmarse con la seccion A301.
+  - Coordenadas en pies, mismo origen que los DXF: si importas el DXF
+    "origen a origen" queda exactamente debajo del modelo para comparar.

@@ -1,0 +1,34 @@
+619 BRICKELL - PLANTAS EN DXF PARA REVIT
+=========================================
+Origen: PDF del proyecto (Siegel Suarez Architects), hojas A115a-A127, escala 1/8" = 1'-0".
+Unidades del DXF: PIES (escala real 1:1). Las 10 plantas comparten el mismo origen,
+por eso quedan alineadas entre niveles.
+
+Capas:
+  A-MURO-CONCRETO   muros y núcleos de concreto (relleno gris del plano)
+  A-LINEA-GRUESA    líneas principales (muros, fachada)
+  A-LINEA           líneas de dibujo (tabiques, puertas, barandas, mobiliario)
+  A-LINEA-FINA      líneas finas
+  A-TEXTO-PDF       textos originales del plano
+  A-AREA-UNIDAD     contorno de cada residencia (sin corredores, ascensores ni escaleras)
+  A-AREA-COMUN      áreas comunes: corredores, ascensores, escaleras
+  A-NOMBRE-ESPACIO  nombres de espacios (Sala - Comedor, Cocina, Dormitorio, Baño, Balcón...)
+
+Cómo usarlo en Revit
+1. Crea los niveles (Nivel 11, Nivel 12, Nivel 13...) en una vista de alzado.
+2. En la vista de planta de cada nivel: Insertar > Importar CAD (o Vincular CAD).
+   - Unidades de importación: Pies
+   - Posicionamiento: Automático - origen a origen
+   - Marca "Solo vista actual" para usarlo como calco.
+3. Muros: Arquitectura > Muro > "Seleccionar líneas" sobre A-MURO-CONCRETO y A-LINEA-GRUESA.
+4. Pisos: Arquitectura > Suelo > "Seleccionar líneas" sobre el borde de losa.
+5. Barandales: Arquitectura > Barandilla > Boceto de camino sobre el borde de los balcones.
+6. Puertas: Arquitectura > Puerta, colocándolas sobre los arcos de puerta del calco.
+7. Habitaciones: usa A-AREA-UNIDAD y A-NOMBRE-ESPACIO como guía para Habitación / Área.
+
+Plantas tipo:
+  11  Nivel 11 (pool deck)        1N  Nivel 12
+  2C  Niveles 13-27              2N  Niveles 28-29
+  3C  Niveles 30-43              3N  Niveles 44-45
+  4C  Niveles 46-59              4N  Niveles 60-61
+  5C  Niveles 62-71              5N  Niveles 72-75
